@@ -5,7 +5,7 @@ import { useStateProvider } from "../utils/StateProvider";
 import axios from "axios";
 import { reducerCases } from "../utils/Constants";
 
-export default function Body() {
+export default function Body(headerBackground) {
   const [{ token, selectedPlaylistId, selectedPlaylist }, dispatch] =
     useStateProvider();
   useEffect(() => {
@@ -45,8 +45,13 @@ export default function Body() {
     };
     getInitialPlaylist();
   }, [token, dispatch, selectedPlaylistId]);
+  const msToMinutesAndSeconds = (ms) => {
+    const minutes = Math.floor(ms / 60000);
+    const seconds = ((ms % 60000) / 1000).toFixed(0);
+    return minutes + ":" + (seconds < 10 ? "0" : "") + seconds;
+  };
   return (
-    <Container>
+    <Container headerBackground={headerBackground}>
       {selectedPlaylist && (
         <>
           <div className="playlist">
@@ -109,7 +114,7 @@ export default function Body() {
                         <span>{album}</span>
                       </div>
                       <div className="col">
-                        <span>{duration}</span>
+                        <span>{msToMinutesAndSeconds(duration)}</span>
                       </div>
                     </div>
                   );
@@ -156,6 +161,38 @@ const Container = styled.div`
       top: 15vh;
       padding: 1rem 3rem;
       transition: 0.3s ease-in-out;
+      background-color: ${({ headerBackground }) =>
+        headerBackground ? "#000000dc" : "none"};
+    }
+    .tracks {
+      margin: 0 2rem;
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 5rem;
+      .row {
+        padding: 0.5rem 1rem;
+        display: grid;
+        grid-template-columns: 0.3fr 3.1fr 1.9fr 0.1fr;
+        &:hover {
+          background-color: rgba(0, 0, 0, 0.7);
+        }
+        .col {
+          display: flex;
+          align-items: center;
+          color: #dddcdc;
+          img {
+            height: 40px;
+          }
+        }
+        .detail {
+          display: flex;
+          gap: 1rem;
+          .info {
+            display: flex;
+            flex-direction: column;
+          }
+        }
+      }
     }
   }
 `;

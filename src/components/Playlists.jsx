@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useStateProvider } from "../utils/StateProvider";
 import axios from "axios";
-import reducer from "../utils/reducer";
+
 import { reducerCases } from "../utils/Constants";
 import styled from "styled-components";
 export default function Playlists() {
@@ -36,21 +36,13 @@ export default function Playlists() {
         {playlists.map(({ name, id }) => {
           return <li key={id}>{name}</li>;
         })}
-        {playlists.map(({ name, id }) => {
-          return <li key={id}>{name}</li>;
-        })}
-        {playlists.map(({ name, id }) => {
-          return <li key={id}>{name}</li>;
-        })}
-        {playlists.map(({ name, id }) => {
-          return <li key={id}>{name}</li>;
-        })}
       </ul>
     </Container>
   );
 }
 
 const Container = styled.div`
+  color: #b3b3b3;
   height: 100%;
   overflow: hidden;
   ul {
