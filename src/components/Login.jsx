@@ -16,6 +16,8 @@ export default function Login() {
       "user-read-playback-position",
       "user-top-read",
       "user-read-recently-played",
+      "app-remote-control",
+      "streaming",
     ]; //https://developer.spotify.com/documentation/web-api/concepts/scopes
 
     window.location.href = `${apiUrl}?client_id=${clientId}&redirect_uri=${redirectUrl}&scope=${scope.join(

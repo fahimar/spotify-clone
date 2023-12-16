@@ -16,6 +16,7 @@ export default function CurrentTrack() {
           },
         }
       );
+      /**Response Data Structure: Ensure that the response from Spotify's API matches the structure one expecting. Particularly, one accessing response.data.item.id, response.data.item.name, etc. If the structure of response.data is different, it could lead to errors or no data being displayed. Double-check the Spotify API documentation to confirm the response structure. */
       if (response.data !== "") {
         const currentPlaying = {
           id: response.data.item.id,
@@ -54,8 +55,7 @@ const Container = styled.div`
     display: flex;
     align-items: center;
     gap: 1rem;
-    &__image {
-    }
+
     &__info {
       display: flex;
       flex-direction: column;
