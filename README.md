@@ -1,3 +1,9 @@
+# Try to clone spotify app using reactjs
+![image](https://github.com/fahimar/spotify-clone/assets/54270247/eb4d3158-c65b-4b91-a6b2-6ae2799ea922)
+
+![image](https://github.com/fahimar/spotify-clone/assets/54270247/82e95287-75ee-4410-9609-f7ee80c65cbc)
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
